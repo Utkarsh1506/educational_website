@@ -1,0 +1,300 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="{% static 'lib/animate/animate.min.css'%}" rel="stylesheet">
+  <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="{% static 'css/style.css'%}" rel="stylesheet">
+
+  <!-- animation css -->
+  <link rel="stylesheet" href="{% static 'plugins/animate/animate.css'%}">
+
+
+  <!-- aos -->
+  <link rel="stylesheet" href="{% static 'plugins/aos/aos.css'%}">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="{% static 'plugins/venobox/venobox.css'%}">
+  <style>
+    /* * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    } */
+
+    /* body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+
+    } */
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 0 20px;
+      min-height: auto;
+    }
+
+    .main {
+      position: relative;
+      display: flex; 
+      flex-direction: column;
+      background-color: #0c2b4b;
+      max-height: 492px;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 7px 7px 10px 3px #0c2b4b;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 28px;
+    }
+
+    /*checkbox to switch from sign up to login*/
+    #chk {
+      display: none;
+    }
+
+    /*Login*/
+    .login {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .login label {
+      margin: 25% 0 5%;
+    }
+
+    label {
+      color: #fff;
+      font-size: 2rem;
+      justify-content: center;
+      display: flex;
+      font-weight: bold;
+      cursor: pointer;
+      transition: .5s ease-in-out;
+    }
+
+    .input {
+      width: 100%;
+      height: 40px;
+      background: #e0dede;
+      padding: 10px;
+      border: none;
+      outline: none;
+      border-radius: 4px;
+    }
+
+    /*Register*/
+    .register {
+      background: #eee;
+      border-radius: 60% / 10%;
+      transform: translateY(5%);
+      transition: .8s ease-in-out;
+    }
+
+    .register label {
+      color: #0c2b4b;
+      transform: scale(.6);
+    }
+
+    #chk:checked~.register {
+      transform: translateY(-60%);
+    }
+
+    #chk:checked~.register label {
+      transform: scale(1);
+      margin: 10% 0 5%;
+    }
+
+    #chk:checked~.login label {
+      transform: scale(.6);
+      margin: 5% 0 5%;
+    }
+
+    /*Button*/
+    .form button {
+      width: 85%;
+      height: 40px;
+      margin: 12px auto 10%;
+      color: #fff;
+      background: #f5c726;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: .2s ease-in;
+    }
+
+    .form button:hover {
+      background-color: #f5c726;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <!-- Spinner Start -->
+  <div id="spinner"
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-primary" role="status"></div>
+  </div>
+  <!-- Spinner End -->
+
+
+  <!-- Topbar Start -->
+  <div class="container-fluid bg-dark text-light p-0">
+    <div class="row gx-0 d-none d-lg-flex">
+      <div class="col-lg-7 px-5 text-start">
+        <div class="h-100 d-inline-flex align-items-center me-4">
+          <small class="fa fa-map-marker-alt text-primary me-2"></small>
+          <small>Agra,Uttar Pradesh - 282001 </small>
+        </div>
+        <div class="h-100 d-inline-flex align-items-center">
+          <small class="far fa-clock text-primary me-2"></small>
+          <small>Mon - Sat : 09.00 AM - 06.00 AM</small>
+        </div>
+      </div>
+      <div class="col-lg-5 px-5 text-end">
+        <div class="h-100 d-inline-flex align-items-center me-4">
+          <small class="fa fa-phone-alt text-primary me-2"></small>
+          <small>+918445159506</small>
+        </div>
+        <div class="h-100 d-inline-flex align-items-center mx-n2">
+          <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i
+              class="fab fa-facebook-f"></i></a>
+          <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i
+              class="fab fa-twitter"></i></a>
+          <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary"
+            href="https://www.linkedin.com/in/sachin-shakya-44b971279/"><i class="fab fa-linkedin-in"></i></a>
+          <a class="btn btn-square btn-link rounded-0" href=""><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Topbar End -->
+
+
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
+    <a href="index.html" class="navbar-brand d-flex align-items-center border-end px-4 px-lg-5">
+      <img class="w-20" src="{% static 'img/logo.jpg'%}" style="width:145%; height:95%" alt="Image"></img>
+    </a>
+    <h2 style="font-weight: 900;">ENDEAVOUR INSTITUTE </h2>
+
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ms-auto p-4 p-lg-0">
+        <a href="index.html" class="nav-item nav-link active">Home</a>
+        <a href="about.html" class="nav-item nav-link">About</a>
+        <a href="hall_of_fame.html" class="nav-item nav-link">Hall Of Fame</a>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Courses</a>
+          <div class="dropdown-menu bg-light m-0">
+            <a href="class_9.html" class="dropdown-item">Class 9th</a>
+            <a href="class_10.html" class="dropdown-item">Class 10th</a>
+            <a href="class_11.html" class="dropdown-item">Class 11th</a>
+            <a href="class_12.html" class="dropdown-item">Class 12th</a>
+            <a href="btech.html" class="dropdown-item">B.Tech Batches</a>
+            <a href="bsc.html" class="dropdown-item">B.Sc Batches</a>
+            <a href="skill.html" class="dropdown-item">Skill Based</a>
+          </div>
+        </div>
+        <a href="contact.html" class="nav-item nav-link">Contact</a>
+      </div>
+
+      <a href="login.html" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Login/Register<i
+          class="fa fa-arrow-right ms-3"></i></a>
+
+    </div>
+  </nav>
+  <div class="container">
+    <div class="main">
+      <input type="checkbox" id="chk" aria-hidden="true">
+
+      <div class="login">
+        <form class="form">
+          <label for="chk" aria-hidden="true">Log in</label>
+          <input class="input" type="email" name="email" placeholder="Email" required="">
+          <input class="input" type="password" name="pswd" placeholder="Password" required="">
+          <button>Log in</button>
+        </form>
+      </div>
+
+      <div class="register">
+        <form class="form">
+          <label for="chk" aria-hidden="true">Register</label>
+          <input class="input" type="text" name="txt" placeholder="Username" required="">
+          <input class="input" type="email" name="email" placeholder="Email" required="">
+          <input class="input" type="password" name="pswd" placeholder="Password" required="">
+          <button>Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  
+
+
+  <!-- Back to Top -->
+  <a href="index.html" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'lib/wow/wow.min.js'%}"></script>
+  <script src="{% static 'lib/easing/easing.min.js'%}"></script>
+  <script src="{% static 'lib/waypoints/waypoints.min.js'%}"></script>
+  <script src="{% static 'lib/owlcarousel/owl.carousel.min.js'%}"></script>
+  <!-- venobox popup -->
+  <script src="{% static 'plugins/venobox/venobox.min.js'%}"></script>
+  <!-- jQuery -->
+  <script src="{% static 'plugins/jQuery/jquery.min.js'%}"></script>
+  <!-- Bootstrap JS -->
+  <script src="{% static 'plugins/bootstrap/bootstrap.min.js'%}"></script>
+  <!-- slick slider -->
+  <script src="{% static 'plugins/slick/slick.min.js'%}"></script>
+  <!-- aos -->
+  <script src="{% static 'plugins/aos/aos.js'%}"></script>
+
+  <!-- mixitup filter -->
+  <script src="{% static 'plugins/mixitup/mixitup.min.js'%}"></script>
+
+  <!-- Template Javascript -->
+  <script src="{% static 'js/main.js'%}"></script>
+</body>
+
+</html>
