@@ -98,7 +98,18 @@
                 </div>
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Login/Register<i class="fa fa-arrow-right ms-3"></i></a>
+            {% if user.is_authenticated %}
+    
+            <a href="logout" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Logout<i
+                    class="fa fa-arrow-right ms-3"></i></a>
+
+            {% else %}
+                    
+            <a href="login" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Login/Register<i
+                    class="fa fa-arrow-right ms-3"></i></a>
+            
+            {% endif %}
+
         </div>
     </nav>
     <!-- Navbar End -->
@@ -205,19 +216,19 @@
                 
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Company</h4>
-                    <a class="btn btn-link" href="about.html">About Us</a>
-                    <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <a class="btn btn-link" href="about.html">Our Services</a>
-                    <a class="btn btn-link" href="terms_and_conditions.html">Terms & Condition</a>
+                    <a class="btn btn-link" href="about">About Us</a>
+                    <a class="btn btn-link" href="contact">Contact Us</a>
+                    <a class="btn btn-link" href="about">Our Services</a>
+                    <a class="btn btn-link" href="terms_and_conditions">Terms & Condition</a>
                     <a class="btn btn-link" src="{% static 'img/PRIVACY AND POLICY.pdf'%}">Privacy Policy</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Popular Links</h4>
-                    <a class="btn btn-link" href="courses.html">Courses</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Notes</a>
-                    <a class="btn btn-link" href="">Support</a>
+                    <a class="btn btn-link" href="courses">Courses</a>
+                    <a class="btn btn-link" href="contact">Contact Us</a>
+                    <a class="btn btn-link" href="about">Our Services</a>
+                    <a class="btn btn-link" href="courses">Courses</a>
+                    <a class="btn btn-link" href="contact">Support</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Subscription</h4>
@@ -262,17 +273,29 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
+ <!-- JavaScript Libraries -->
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="{% static 'lib/wow/wow.min.js'%}"></script>
+ <script src="{% static 'lib/easing/easing.min.js'%}"></script>
+ <script src="{% static 'lib/waypoints/waypoints.min.js'%}"></script>
+ <script src="{% static 'lib/owlcarousel/owl.carousel.min.js'%}"></script>
+ <!-- venobox popup -->
+ <script src="{% static 'plugins/venobox/venobox.min.js'%}"></script>
+ <!-- jQuery -->
+ <script src="{% static 'plugins/jQuery/jquery.min.js'%}"></script>
+ <!-- Bootstrap JS -->
+ <script src="{% static 'plugins/bootstrap/bootstrap.min.js'%}"></script>
+ <!-- slick slider -->
+ <script src="{% static 'plugins/slick/slick.min.js'%}"></script>
+ <!-- aos -->
+ <script src="{% static 'plugins/aos/aos.js'%}"></script>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{% static 'lib/wow/wow.min.js'%}"></script>
-    <script src="{% static 'lib/easing/easing.min.js'%}"></script>
-    <script src="{% static 'lib/waypoints/waypoints.min.js'%}"></script>
-    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js'%}"></script>
+ <!-- mixitup filter -->
+ <script src="{% static 'plugins/mixitup/mixitup.min.js'%}"></script>
 
-    <!-- Template Javascript -->
-    <script src="{% static 'js/main.js'%}"></script>
+ <!-- Template Javascript -->
+ <script src="{% static 'js/main.js'%}"></script>
 </body>
 
 </html>

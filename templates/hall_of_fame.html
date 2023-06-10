@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="{% static 'img/favicon.ico'%}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,14 +22,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{% static 'css/style.css'%}" rel="stylesheet">
 </head>
 
 <body>
@@ -72,7 +73,7 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
         <a href="index.html" class="navbar-brand d-flex align-items-center border-end px-4 px-lg-5">
-            <img class="w-20" src="img/logo.jpg"  style="width:145%; height:95%" alt="Image"></img>
+            <img class="w-20" src="{% static 'img/logo.jpg' %}"  style="width:145%; height:95%" alt="Image"></img>
             
         </a>
         <h2 style="font-weight: 900;">ENDEAVOUR INSTITUTE </h2>
@@ -81,24 +82,35 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="hall_of_fame.html" class="nav-item nav-link">Hall Of Fame</a>
+                <a href="index" class="nav-item nav-link">Home</a>
+                <a href="about" class="nav-item nav-link">About</a>
+                <a href="hall_of_fame" class="nav-item nav-link">Hall Of Fame</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Courses</a>
                     <div class="dropdown-menu bg-light m-0">
-                        <a href="class_9.html" class="dropdown-item">Class 9th</a>
-                        <a href="class_10.html" class="dropdown-item">Class 10th</a>
-                        <a href="class_11.html" class="dropdown-item">Class 11th</a>
-                        <a href="class_12.html" class="dropdown-item">Class 12th</a>
-                        <a href="btech.html" class="dropdown-item">B.Tech Batches</a>
-                        <a href="bsc.html" class="dropdown-item">B.Sc Batches</a>
-                        <a href="skill.html" class="dropdown-item">Skill Based</a>
+                        <a href="class_9" class="dropdown-item">Class 9th</a>
+                        <a href="class_10" class="dropdown-item">Class 10th</a>
+                        <a href="class_11" class="dropdown-item">Class 11th</a>
+                        <a href="class_12" class="dropdown-item">Class 12th</a>
+                        <a href="btech" class="dropdown-item">B.Tech Batches</a>
+                        <a href="bsc" class="dropdown-item">B.Sc Batches</a>
+                        <a href="skill" class="dropdown-item">Skill Based</a>
                     </div>
                 </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <a href="contact" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Log in/Sign Up<i class="fa fa-arrow-right ms-3"></i></a>
+            {% if user.is_authenticated %}
+    
+            <a href="logout" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Logout<i
+                    class="fa fa-arrow-right ms-3"></i></a>
+
+            {% else %}
+                    
+            <a href="login" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Login/Register<i
+                    class="fa fa-arrow-right ms-3"></i></a>
+            
+            {% endif %}
+
         </div>
     </nav>
     <!-- Navbar End -->
@@ -132,7 +144,7 @@
                     <div class="owl-carousel testimonial-carousel">
                         <div class="testimonial-item text-center">
                             <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-circle mx-auto" src="img/testimonial-1.jpg" alt="">
+                                <img class="img-fluid rounded-circle mx-auto" src="{% static 'img/1.jpg' %}" alt="">
                                 <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle" style="width: 60px; height: 60px;">
                                     <i class="fa fa-quote-left fa-2x text-primary"></i>
                                 </div>
@@ -144,7 +156,7 @@
                         </div>
                         <div class="testimonial-item text-center">
                             <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-circle mx-auto" src="img/testimonial-2.jpg" alt="">
+                                <img class="img-fluid rounded-circle mx-auto" src="{% static 'img/18.jpg' %}" alt="">
                                 <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle" style="width: 60px; height: 60px;">
                                     <i class="fa fa-quote-left fa-2x text-primary"></i>
                                 </div>
@@ -156,7 +168,7 @@
                         </div>
                         <div class="testimonial-item text-center">
                             <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-circle mx-auto" src="img/testimonial-3.jpg" alt="">
+                                <img class="img-fluid rounded-circle mx-auto" src="{% static 'img/2.jpg' %}" alt="">
                                 <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle" style="width: 60px; height: 60px;">
                                     <i class="fa fa-quote-left fa-2x text-primary"></i>
                                 </div>
@@ -188,19 +200,19 @@
 
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Company</h4>
-                    <a class="btn btn-link" href="about.html">About Us</a>
-                    <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <a class="btn btn-link" href="about.html">Our Services</a>
-                    <a class="btn btn-link" href="terms_and_conditions.html">Terms & Condition</a>
-                    <a class="btn btn-link" src="img/PRIVACY AND POLICY.pdf">Privacy Policy</a>
+                    <a class="btn btn-link" href="about">About Us</a>
+                    <a class="btn btn-link" href="contact">Contact Us</a>
+                    <a class="btn btn-link" href="about">Our Services</a>
+                    <a class="btn btn-link" href="terms_and_conditions">Terms & Condition</a>
+                    <a class="btn btn-link" src="{% static 'img/PRIVACY AND POLICY.pdf'%}">Privacy Policy</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Popular Links</h4>
-                    <a class="btn btn-link" href="courses.html">Courses</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Notes</a>
-                    <a class="btn btn-link" href="">Support</a>
+                    <a class="btn btn-link" href="courses">Courses</a>
+                    <a class="btn btn-link" href="contact">Contact Us</a>
+                    <a class="btn btn-link" href="about">Our Services</a>
+                    <a class="btn btn-link" href="courses">Courses</a>
+                    <a class="btn btn-link" href="contact">Support</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Subscription</h4>
@@ -245,17 +257,29 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
+ <!-- JavaScript Libraries -->
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="{% static 'lib/wow/wow.min.js'%}"></script>
+ <script src="{% static 'lib/easing/easing.min.js'%}"></script>
+ <script src="{% static 'lib/waypoints/waypoints.min.js'%}"></script>
+ <script src="{% static 'lib/owlcarousel/owl.carousel.min.js'%}"></script>
+ <!-- venobox popup -->
+ <script src="{% static 'plugins/venobox/venobox.min.js'%}"></script>
+ <!-- jQuery -->
+ <script src="{% static 'plugins/jQuery/jquery.min.js'%}"></script>
+ <!-- Bootstrap JS -->
+ <script src="{% static 'plugins/bootstrap/bootstrap.min.js'%}"></script>
+ <!-- slick slider -->
+ <script src="{% static 'plugins/slick/slick.min.js'%}"></script>
+ <!-- aos -->
+ <script src="{% static 'plugins/aos/aos.js'%}"></script>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+ <!-- mixitup filter -->
+ <script src="{% static 'plugins/mixitup/mixitup.min.js'%}"></script>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+ <!-- Template Javascript -->
+ <script src="{% static 'js/main.js'%}"></script>
 </body>
 
 </html>

@@ -1,21 +1,24 @@
 from django.shortcuts import render,redirect
 from django.contrib import auth
 from django.contrib import messages
+from django.contrib.auth.models import User
+
+from django.contrib.auth.decorators import login_required
 
 from datetime import datetime
 
-from .models import Student, Contact
+from .models import  Contact
 
 
 
 # Create your views here.
 def index(request):
-    # user = request.user
-    # parameters = {
-    #     'user': user,
-    # }
+    user = request.user
+    parameters = {
+        'user': user,
+    }
     
-    return render(request, "index.html")
+    return render(request, "index.html",parameters)
 
 def about(request):
     user = request.user
@@ -46,51 +49,48 @@ def login(request):
     
     if request.method == 'POST':
         username = request.POST.get('username')
-        password = request.POST.get('password')
+        passwd = request.POST.get('passwd')
         
-        print("got the data")
-        
-        user = auth.authenticate(request, username=username, password=password)
-        
-        print("authenticated")
-        
-        if user is not None:
+        if User.objects.filter(username=username).exists():
+            user = auth.authenticate(username=username, password=passwd)
             
-            user = Student.objects.get(username=username)
-            auth.login(request, user)
-            print("Logged in")
-            return redirect('index')
+            if user is not None:
+                auth.login(request, user)
+                return redirect('index')
+            else:
+                messages.info(request, 'Username or Password is incorrect')
+            
         
-        else:
-            messages.info(request, 'Username or Password is incorrect')
+    else:
+        messages.info(request, 'Logged in successfully')
     
     return render(request, 'login.html')
 
 def signup(request):
         
     if request.method == 'POST':
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
+        fname = request.POST.get('fname')
         username = request.POST.get('username')
-        password = request.POST.get('password')
-        confirm_password = request.POST.get('confirm_password')
+        passwd = request.POST.get('passwd')
         
-        if password == confirm_password:
-            
-            if Student.objects.filter(username=username).exists():
-                messages.info(request, 'Username already taken')
-                
-            else:
-                user = Student.objects.create_user(username=username)
-                user.set_password(password)
-                
-                user.save()
-                messages.success(request, "Account created successfully. Login Again")
-                return redirect('login')
+        user = User.objects.filter(username=username) 
         
-        else:
-            messages.info(request, 'Passwords do not match')
-    return redirect('login')
+        if user.exists():
+            messages.info(request, 'Username already exists')
+            return redirect('login')
+        
+        user = User.objects.create_user(username=username)
+        
+        user.set_password(passwd)
+        user.save()
+        
+        messages.info(request, 'Account created successfully')
+        
+        return redirect('login')
+       
+        
+    return render(request, 'login.html')
+    
         
 def logout(request):
     auth.logout(request)
@@ -104,38 +104,43 @@ def team(request):
     }
     return render(request, "team.html",parameters)
 
-def class_9th(request):
+@login_required(login_url='login')
+def class_9(request):
     user = request.user
     
     parameters = {
         'user': user,
     }
-    return render(request, "class_9th.html",parameters)
+    return render(request, "class_9.html",parameters)
 
-def class_10th(request):
+@login_required(login_url='login')
+def class_10(request):
     user = request.user
     
     parameters = {
         'user': user,
     }
-    return render(request, "class_10th.html",parameters)
+    return render(request, "class_10.html",parameters)
 
-def class_11th(request):
+@login_required(login_url='login')
+def class_11(request):
     user = request.user
     
     parameters = {
         'user': user,
     }
-    return render(request, "class_11th.html",parameters)
+    return render(request, "class_11.html",parameters)
 
-def class_12th(request):
+@login_required(login_url='login')
+def class_12(request):
     user = request.user
     
     parameters = {
         'user': user,
     }
-    return render(request, "class_12th.html",parameters)
+    return render(request, "class_12.html",parameters)
 
+@login_required(login_url='login')
 def bsc(request):
     user = request.user
     
@@ -144,6 +149,7 @@ def bsc(request):
     }
     return render(request, "bsc.html",parameters)
 
+@login_required(login_url='login')
 def btech(request):
     user = request.user
     
@@ -152,6 +158,7 @@ def btech(request):
     }
     return render(request, "btech.html",parameters)
 
+@login_required(login_url='login')
 def skill(request):
     user = request.user
     
@@ -159,6 +166,23 @@ def skill(request):
         'user': user,
     }
     return render(request, "skill.html",parameters)
+
+@login_required(login_url='login')
+def course_details(request):
+    user = request.user
+    
+    parameters = {
+        'user': user,
+    }
+    return render(request, "course_details.html",parameters)
+
+@login_required(login_url='login')
+def Physics(request):
+    user = request.user
+    parameters = {
+        'user': user,
+    }
+    return render(request, "Physics.html",parameters)
 
 def terms_and_conditions(request):
     user = request.user

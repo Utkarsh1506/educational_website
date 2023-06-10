@@ -56,6 +56,7 @@
       margin: 0 auto;
       padding: 0 20px;
       min-height: auto;
+      margin-top: 3%;
     }
 
     .main {
@@ -63,9 +64,9 @@
       display: flex; 
       flex-direction: column;
       background-color: #0c2b4b;
-      max-height: 492px;
+      max-height: 530px;
       overflow: hidden;
-      border-radius: 12px;
+      border-radius: 26px;
       box-shadow: 7px 7px 10px 3px #0c2b4b;
     }
 
@@ -73,7 +74,7 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
-      padding: 28px;
+      padding: 45px;
     }
 
     /*checkbox to switch from sign up to login*/
@@ -131,12 +132,12 @@
 
     #chk:checked~.register label {
       transform: scale(1);
-      margin: 10% 0 5%;
+      margin: 5% 0 0%;
     }
 
     #chk:checked~.login label {
       transform: scale(.6);
-      margin: 5% 0 5%;
+      margin: 10% 0 7%;
     }
 
     /*Button*/
@@ -149,7 +150,7 @@
       font-size: 1rem;
       font-weight: bold;
       border: none;
-      border-radius: 4px;
+      border-radius: 11px;
       cursor: pointer;
       transition: .2s ease-in;
     }
@@ -217,48 +218,61 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav ms-auto p-4 p-lg-0">
-        <a href="index.html" class="nav-item nav-link active">Home</a>
-        <a href="about.html" class="nav-item nav-link">About</a>
-        <a href="hall_of_fame.html" class="nav-item nav-link">Hall Of Fame</a>
+        <a href="index" class="nav-item nav-link active">Home</a>
+        <a href="about" class="nav-item nav-link">About</a>
+        <a href="hall_of_fame" class="nav-item nav-link">Hall Of Fame</a>
         <div class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Courses</a>
           <div class="dropdown-menu bg-light m-0">
-            <a href="class_9.html" class="dropdown-item">Class 9th</a>
-            <a href="class_10.html" class="dropdown-item">Class 10th</a>
-            <a href="class_11.html" class="dropdown-item">Class 11th</a>
-            <a href="class_12.html" class="dropdown-item">Class 12th</a>
-            <a href="btech.html" class="dropdown-item">B.Tech Batches</a>
-            <a href="bsc.html" class="dropdown-item">B.Sc Batches</a>
-            <a href="skill.html" class="dropdown-item">Skill Based</a>
+            <a href="class_9" class="dropdown-item">Class 9th</a>
+            <a href="class_10" class="dropdown-item">Class 10th</a>
+            <a href="class_11" class="dropdown-item">Class 11th</a>
+            <a href="class_12" class="dropdown-item">Class 12th</a>
+            <a href="btech" class="dropdown-item">B.Tech Batches</a>
+            <a href="bsc" class="dropdown-item">B.Sc Batches</a>
+            <a href="skill" class="dropdown-item">Skill Based</a>
           </div>
         </div>
-        <a href="contact.html" class="nav-item nav-link">Contact</a>
+        <a href="contact" class="nav-item nav-link">Contact</a>
       </div>
 
-      <a href="login.html" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Login/Register<i
+      <a href="login" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Login/Register<i
           class="fa fa-arrow-right ms-3"></i></a>
 
     </div>
   </nav>
+  <!-- navbar ends -->
+  {% for message in messages %}
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>{{ message.tag }}</strong> {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+  {% endfor %}
+
   <div class="container">
     <div class="main">
       <input type="checkbox" id="chk" aria-hidden="true">
 
       <div class="login">
-        <form class="form">
+        <form class="form" action='/login' method='post'>
+          {% csrf_token %}
           <label for="chk" aria-hidden="true">Log in</label>
-          <input class="input" type="email" name="email" placeholder="Email" required="">
-          <input class="input" type="password" name="pswd" placeholder="Password" required="">
+          <input class="input" type="text" name="username" placeholder="Username" id="username" required="">
+          <input class="input" type="password" name="passwd" placeholder="Password" id="passwd" required="">
           <button>Log in</button>
         </form>
       </div>
 
       <div class="register">
-        <form class="form">
+        <form class="form" action='/signup' method='post'>
+          {% csrf_token %}
           <label for="chk" aria-hidden="true">Register</label>
-          <input class="input" type="text" name="txt" placeholder="Username" required="">
-          <input class="input" type="email" name="email" placeholder="Email" required="">
-          <input class="input" type="password" name="pswd" placeholder="Password" required="">
+          <input class="input" type="text" name="username" placeholder="Username" id='username' required="">
+          <input class="input" type="text" name="fname" placeholder="Full Name" id='fname' required="">
+          <input class="input" type="email" name="email" placeholder="Email" id="email" required="">
+          <input class="input" type="password" name="passwd" placeholder="Password" id="passwd" required="">
           <button>Register</button>
         </form>
       </div>
