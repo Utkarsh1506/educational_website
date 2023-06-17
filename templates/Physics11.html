@@ -70,7 +70,6 @@
     <!-- Topbar End -->
 
 
-    <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
         <a href="index" class="navbar-brand d-flex align-items-center px-4 px-lg-2">
             <img class="w-20"  src="{% static 'img/logo_2.png'%}" style="width:140%; height:100%;
@@ -83,10 +82,10 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index" class="nav-item nav-link">Home</a>
-                <a href="about" class="nav-item nav-link">About</a>
-                <a href="class_12" class="nav-item nav-link active">B.sc Batches</a>
+                <a href="about" class="nav-item nav-link active">About</a>
+                <a href="hall_of_fame" class="nav-item nav-link">Hall Of Fame</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Courses</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">COURSES</a>
                     <div class="dropdown-menu bg-light m-0">
                         <a href="class_9" class="dropdown-item">Class 9th</a>
                         <a href="class_10" class="dropdown-item">Class 10th</a>
@@ -116,91 +115,39 @@
     <!-- Navbar End -->
 
 
+
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-6 my-6 mt-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="container text-center">
-            <ol class="breadcrumb justify-content-center mb-0">
-                <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                
-                <li class="breadcrumb-item text-primary active" aria-current="page">B.Sc. Batches</li>
-            </ol>
-            <h1 class="display-4 text-white animated slideInDown mb-4">B.Sc. Batches</h1>
-            <p class="lead text-white mb-0">Ignite Your Academic Journey with our Affordable B.Sc.  Course Led by Expert Faculty at Endeavour Institute</p>
+            <h1 class="display-4 text-white animated slideInDown mb-4">Physics</h1>
             <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="class_9">Class 11th</a></li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">Physics</li>
+                </ol>
             </nav>
         </div>
     </div>
     <!-- Page Header End -->
 
 
-    <!-- Courses Start -->
+    <!-- Features Start -->
     <div class="container-xxl py-6">
         <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <h1>Here We Start !</h1>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="courses-item d-flex flex-column bg-light overflow-hidden h-100">
-                        <div class="text-center p-4 pt-0">
-                            <div class="d-inline-block bg-primary text-white fs-5 py-1 px-4 mb-4">₹199</div>
-                            <h5 class="mb-3">Physics</h5>
-                            <p>In this course, we delve into the captivating realm of physics, exploring topics such as electromagnetism, and quantum physics. Through engaging lectures and visualization you will gain a deep understanding of the principles that shape our physical world.</p>
-                            <ol class="breadcrumb justify-content-center mb-0">
-                                <li class="breadcrumb-item small"><i class="fa fa-signal text-primary me-2"></i>Beginner To Advance</li>
-                                <li class="breadcrumb-item small"><i class="fa fa-calendar-alt text-primary me-2"></i>3 Week</li>
-                            </ol>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="{% static 'img/6.jpg'%}" alt="">
-                            <div class="courses-overlay">
-                                <a class="btn btn-outline-primary border-2" href="Physics">Explore</a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="text-primary text-uppercase mb-2">PHYSICS</h6>
+                    <h1 class="display-6 mb-4">Notes</h1>
+                    
+                    <p class="mb-4">Physics is the natural science that studies matter, its motion and behavior through space and time, and the related entities of energy and force. Physics is one of the most fundamental scientific disciplines, and its main goal is to understand how the universe behaves.</p>
+                    <a target="_blank" href="{% static 'img/p1.pdf' %}" class="btn btn-primary">Download</a>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="courses-item d-flex flex-column bg-light overflow-hidden h-100">
-                        <div class="text-center p-4 pt-0">
-                            <div class="d-inline-block bg-primary text-white fs-5 py-1 px-4 mb-4">₹199</div>
-                            <h5 class="mb-3">Biology</h5>
-                            <p>Our Biology course at Endeavour Institute is designed to ignite your curiosity about the fascinating world of life sciences. Whether you're a budding biologist, a future healthcare professional, or simply interested in understanding the intricacies of life, this course is perfect for you.</p>
-                            <ol class="breadcrumb justify-content-center mb-0">
-                                <li class="breadcrumb-item small"><i class="fa fa-signal text-primary me-2"></i>Beginner To Advance</li>
-                                <li class="breadcrumb-item small"><i class="fa fa-calendar-alt text-primary me-2"></i>3 Week</li>
-                            </ol>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="{% static 'img/10.avif'%}" alt="">
-                            <div class="courses-overlay">
-                                <a class="btn btn-outline-primary border-2" href="">Explore</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="courses-item d-flex flex-column bg-light overflow-hidden h-100">
-                        <div class="text-center p-4 pt-0">
-                            <div class="d-inline-block bg-primary text-white fs-5 py-1 px-4 mb-4">₹199</div>
-                            <h5 class="mb-3">Mathematics</h5>
-                            <p>Unlock the Power of Mathematics with our Engaging Maths Course! Enroll today and let the world of mathematics unfold before you!</p>
-                            <ol class="breadcrumb justify-content-center mb-0">
-                                <li class="breadcrumb-item small"><i class="fa fa-signal text-primary me-2"></i>Beginner</li>
-                                <li class="breadcrumb-item small"><i class="fa fa-calendar-alt text-primary me-2"></i>3 Week</li>
-                            </ol>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="{% static 'img/16.jpg'%}" alt="">
-                            <div class="courses-overlay">
-                                <a class="btn btn-outline-primary border-2" href="">Explore</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
-    <!-- Courses End -->
+    <!-- Features End -->
 
 
     <!-- Footer Start -->
@@ -214,14 +161,14 @@
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+918445159506</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>endeavourinstitute1316@gmail.com</p>
                 </div>
-                
+
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Company</h4>
                     <a class="btn btn-link" href="about">About Us</a>
                     <a class="btn btn-link" href="contact">Contact Us</a>
                     <a class="btn btn-link" href="about">Our Services</a>
                     <a class="btn btn-link" href="terms_and_conditions">Terms & Condition</a>
-                    <a class="btn btn-link" href="{% static 'img/privacy.pdf'%}">Privacy and Policy</a>
+                    <a class="btn btn-link" target="_blank" href="{% static 'img/privacy.pdf'%}">Privacy and Policy</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Popular Links</h4>
@@ -273,7 +220,6 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
  <!-- JavaScript Libraries -->
  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>

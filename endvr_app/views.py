@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from django.contrib import auth
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
+from django.conf import settings    
 
 from django.contrib.auth.decorators import login_required
 
@@ -35,6 +37,7 @@ def contact(request):
         email = request.POST.get('email')
         message = request.POST.get('message')
         
+        
         contact = Contact(email=email, message=message)
         contact.save()
         
@@ -57,12 +60,11 @@ def login(request):
             if user is not None:
                 auth.login(request, user)
                 return redirect('index')
-            else:
-                messages.info(request, 'Username or Password is incorrect')
+        else:
+            messages.info(request, 'Username or Password is incorrect')
             
         
-    else:
-        messages.info(request, 'Logged in successfully')
+ 
     
     return render(request, 'login.html')
 
@@ -183,6 +185,22 @@ def Physics(request):
         'user': user,
     }
     return render(request, "Physics.html",parameters)
+
+@login_required(login_url='login')
+def Physics10(request):
+    user = request.user
+    parameters = {
+        'user': user,
+    }
+    return render(request, "Physics10.html",parameters)
+
+@login_required(login_url='login')
+def Physics11(request):
+    user = request.user
+    parameters = {
+        'user': user,
+    }
+    return render(request, "Physics11.html",parameters)
 
 def terms_and_conditions(request):
     user = request.user

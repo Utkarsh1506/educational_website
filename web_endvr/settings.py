@@ -1,6 +1,7 @@
 
 from pathlib import Path
 from django.contrib.messages import constants as messages
+from django.core.mail import send_mail
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -17,6 +18,11 @@ SECRET_KEY = 'django-insecure-rqj**^8t%1*=o(jvkz41x%ygw%u9a6i87fyf-5un(5x^m^$$jc
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+
+
+# Email Settings
+
 
 
 # Application definition
@@ -68,7 +74,7 @@ WSGI_APPLICATION = 'web_endvr.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'mbdb/db.sqlite3',
     }
 }
 
