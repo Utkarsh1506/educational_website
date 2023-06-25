@@ -15,9 +15,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-rqj**^8t%1*=o(jvkz41x%ygw%u9a6i87fyf-5un(5x^m^$$jc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["31.187.75.204", "www.endeavourinstitute.in", "endeavourinstitute.in"]
 
 
 
@@ -73,8 +73,12 @@ WSGI_APPLICATION = 'web_endvr.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'mbdb/db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': "endeavour",
+        "USER": "root",
+        "PASSWORD": "root",
+        "HOST": "localhost",
+        "PORT": "3306"
     }
 }
 
@@ -118,9 +122,10 @@ STATIC_URL = '/static/'
 #Add Manually
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / "demo_static",
 ]
 
+STATIC_ROOT = BASE_DIR / "static"
 
 
 # Default primary key field type

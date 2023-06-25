@@ -24,4 +24,5 @@ urlpatterns = [
     path("Physics", views.Physics, name="Physics"),
     path("Physics10", views.Physics10, name="Physics10"),
     path("Physics11", views.Physics11, name="Physics11"),
+    
 ]
