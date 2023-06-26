@@ -15,14 +15,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-rqj**^8t%1*=o(jvkz41x%ygw%u9a6i87fyf-5un(5x^m^$$jc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["31.187.75.204", "www.endeavourinstitute.in", "endeavourinstitute.in"]
-
+ALLOWED_HOSTS = ["31.187.75.204",
+                 "www.endeavourinstitute.in", "endeavourinstitute.in", "*"]
 
 
 # Email Settings
-
 
 
 # Application definition
@@ -52,7 +51,7 @@ ROOT_URLCONF = 'web_endvr.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ "templates"],
+        'DIRS': ["templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,13 +71,17 @@ WSGI_APPLICATION = 'web_endvr.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': "endeavour",
+    #     "USER": "root",
+    #     "PASSWORD": "root",
+    #     "HOST": "localhost",
+    #     "PORT": "3306"
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': "endeavour",
-        "USER": "root",
-        "PASSWORD": "root",
-        "HOST": "localhost",
-        "PORT": "3306"
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sqlite3.db',
     }
 }
 
@@ -87,19 +90,19 @@ DATABASES = {
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-#     },
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-#     },
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-#     },
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-#     },
- ]
+    #     {
+    #         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    #     },
+    #     {
+    #         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    #     },
+    #     {
+    #         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    #     },
+    #     {
+    #         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    #     },
+]
 
 
 # Internationalization
@@ -119,7 +122,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#Add Manually
+# Add Manually
 
 STATICFILES_DIRS = [
     BASE_DIR / "demo_static",
