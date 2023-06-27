@@ -106,6 +106,14 @@ def team(request):
     }
     return render(request, "team.html",parameters)
 
+def courses(request):
+    user = request.user
+    
+    parameters = {
+        'user': user,
+    }
+    return render(request, "courses.html",parameters)
+
 @login_required(login_url='login')
 def class_9(request):
     user = request.user
