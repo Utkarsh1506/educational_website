@@ -1750,7 +1750,7 @@ hr.invis1 {
 }
 
 .filter-button-group button.active{
-	background: #f9ba1f;
+	background: #4893df;
 	color: #fff;
 }
 
@@ -1780,7 +1780,7 @@ hr.invis1 {
     text-align: center;
     overflow: hidden;
     position: relative;
-	border: 10px solid #f9ba1f;
+	border: 10px solid #4893df;
 }
 .gallery-single img{
     width: 100%;
@@ -1848,7 +1848,7 @@ hr.invis1 {
 .gallery-single .title{
     font-size: 22px;
     font-weight: 700;
-    color: #f9ba1f;
+    color: #4893df;
     letter-spacing: 1px;
     text-transform: uppercase;
     margin: 0 0 3px 0;
@@ -1887,7 +1887,7 @@ hr.invis1 {
     width: 40px;
     height: 40px;
     line-height: 40px;
-    background: #f9ba1f;
+    background: #4893df;
     font-size: 20px;
     color: #fff;
     margin-bottom: 10px;
@@ -1898,7 +1898,7 @@ hr.invis1 {
     text-decoration: none;
     border-radius: 30%;
     background: #fff;
-    color: #faac01;
+    color: #4893df;
 }
 @media only screen and (max-width:990px){
     .gallery-single{ margin-bottom: 30px; }
